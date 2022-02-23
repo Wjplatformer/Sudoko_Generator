@@ -8,5 +8,5 @@ while True:
     print('Press enter')
     input()
     print('Generation in Proccess...')
-    gd()
+    print(gd())
     
