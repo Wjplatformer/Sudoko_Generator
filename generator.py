@@ -11,7 +11,6 @@ def generate():
     for i in range(9*9): table_list.append(' ')
 
     while True:#cannot be fixed number of loops as you need to calculate a few times
-        print(main_count)
         num=rd(1, 9)
         
         #columns
@@ -20,6 +19,9 @@ def generate():
             if num==i:
                 pass
             else:
+                if all(i != '' for i in temp_list):
+                    gather_count=9
+                    break
                 gather_count += 1
 
         if gather_count==9:
@@ -33,11 +35,8 @@ def generate():
         gather_count=0
         temp_list=[]
 
-        
-        print('='*20)
-        print(cl_Range)
 
-        # columns debugged. Problems: stuck at a few numbers (18) for main count
+        # columns fixed! Ay!
         
         #rows
         for i in range(9):
