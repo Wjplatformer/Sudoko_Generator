@@ -6,7 +6,8 @@ def generate():
     cl_Range=9 #For range of columns to be changed as each column passes
     rw_Range=1 # and rows
     gather_count=0 #how many are different
-    main_count=1 #index in which list is placing stuff
+    gather_count2=0 #counting the number of blanks.
+    main_count=0 #index in which list is placing stuff
     cl_satus=0 #number pass or fail check
     for i in range(9*9): table_list.append(' ')
 
@@ -19,26 +20,27 @@ def generate():
             if num==i:
                 pass
             else:
-                if all(i != '' for i in temp_list):
-                    gather_count=9
-                    break
                 gather_count += 1
+                if gather_count==9:
+                    break
 
         if gather_count==9:
-            if main_count==cl_Range:
-                cl_Range+=9 #next range of columns
             cl_status=1
         else:
             cl_status=0
+
+        if main_count==cl_Range:
+            cl_Range+=9 #next range of columns
 
         #init for rows
         gather_count=0
         temp_list=[]
 
 
-        # columns fixed! Ay!
+        # COLUMNS ABSOLUTELY FIXED. NO CHANGE REQUIRED.
         
         #rows
+        '''
         for i in range(9):
             temp_list.append(table_list[(i*9)-rw_Range])# i multiplied by 9 - 1 is giving us the indexes of each row
         for i in temp_list:
@@ -47,13 +49,17 @@ def generate():
             else:
                 gather_count += 1
 
-
         if gather_count==9 and cl_status==1:
             table_list[main_count]=num
             rw_Range+=1
             main_count+=1
         else:
             pass
+        '''
+
+        if cl_status==1:
+            table_list[main_count]=num
+            main_count+=1
 
         cl_status=0
         gather_count=0
