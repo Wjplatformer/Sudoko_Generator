@@ -15,7 +15,7 @@ def generate():
     while True:#cannot be fixed number of loops as you need to calculate a few times
         num=rd(1, 9)
         
-        #columns    
+        #columns code which is absolutely useless
         temp_list=table_list[(cl_Range-9):cl_Range]#columns check, slicing.
         for i in temp_list:
             if num==i:
@@ -40,7 +40,22 @@ def generate():
 
         # COLUMNS ABSOLUTELY FIXED. NO CHANGE REQUIRED.
         
+        
+
+        if cl_status==1:
+            table_list[main_count]=num
+            main_count+=1
+
+        cl_status=0
+        gather_count=0
+
+        if main_count==81:#end
+            break
+
+
+    while True:
         #rows
+        break
         '''
         if Type=='Rows':
             for i in range(9):
@@ -58,19 +73,7 @@ def generate():
             else:
                 pass
                 '''
-        
-        
-
-        if cl_status==1:
-            table_list[main_count]=num
-            main_count+=1
-
-        cl_status=0
-        gather_count=0
-
-        if main_count==81:#end
-            break
-
     return table_list
+            
 
         
