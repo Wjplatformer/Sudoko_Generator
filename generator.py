@@ -30,7 +30,22 @@ def generate():
 
 
         # COLUMNS ABSOLUTELY FIXED. NO CHANGE REQUIRED.
-
+         '''
+        if Type=='Rows':
+            for i in range(9):
+                temp_list.append(table_list[(i*9)-rw_Range])# i multiplied by 9 - 1 is giving us the indexes of each row
+            for i in temp_list:
+                if num==i:
+                    pass
+                else:
+                    gather_count += 1
+            if gather_count==9 and cl_status==1:
+                table_list[main_count]=num
+                rw_Range+=1
+                main_count+=1
+            else:
+                pass
+                '''
 
 
         if cl_status==1:
